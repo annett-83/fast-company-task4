@@ -29,7 +29,7 @@ const Users = ({ users: allUsers, ...rest }) => {
         console.log("page: ", pageIndex);
     };
     const fileredUsers = selectProf
-        ? allUsers.filter((user) => user.profession === selectProf)
+        ? allUsers.filter((user) => user.profession._id === selectProf._id)
         : allUsers;
     const count = fileredUsers.length;
     const usersCrop = paginate(fileredUsers, currentPage, pageSize);
@@ -41,9 +41,8 @@ const Users = ({ users: allUsers, ...rest }) => {
             {professions && (
                 <div className="d-flex flex-column flex-shrink-0 p-3">
                     <GroupList
-                        sectetItem={selectProf}
+                        selectedItem={selectProf}
                         items={professions}
-
                         onItemSelect={handeleProfessionSelect}
                     />
 

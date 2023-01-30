@@ -1,5 +1,5 @@
 import { professionsObject as professions } from "./professions.api";
-const qualities = {
+export const qualities = {
     tedious: {
         _id: "67rdca3eeb7f6fgeed471198",
         name: "Нудила",
@@ -32,7 +32,7 @@ const qualities = {
     }
 };
 
-const users = [
+export const users = [
     {
         _id: "67rdca3eeb7f6fgeed471815",
         name: "Джон Дориан",
