@@ -23,10 +23,8 @@ const Users = ({ users: allUsers, ...rest }) => {
     const handeleProfessionSelect = (item) => {
         setSelectedProf(item);
     };
-    console.log(professions);
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex);
-        console.log("page: ", pageIndex);
     };
     const fileredUsers = selectProf
         ? allUsers.filter((user) => user.profession._id === selectProf._id)
