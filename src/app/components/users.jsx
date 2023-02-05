@@ -14,7 +14,7 @@ const Users = ({ users: allUsers, ...rest }) => {
     const [selectProf, setSelectedProf] = useState();
     const [sortBy, setSortBy] = useState({ iter: "name", order: "asc" });
 
-    const pageSize = 4;
+    const pageSize = 8;
     useEffect(() => {
         api.professions.fetchAll().then((data) => setProfession(data));
     }, []);
@@ -30,14 +30,7 @@ const Users = ({ users: allUsers, ...rest }) => {
     };
 
     const handeleSort = (item) => {
-        if (sortBy.iter === item) {
-            setSortBy((prevState) => ({
-                ...prevState,
-                order: prevState.order === "asc" ? "desc" : "asc"
-            }));
-        } else {
-            setSortBy({ iter: item, order: "asc" });
-        }
+        setSortBy(item);
     };
     const fileredUsers = selectProf
         ? allUsers.filter((user) => user.profession._id === selectProf._id)
@@ -75,6 +68,7 @@ const Users = ({ users: allUsers, ...rest }) => {
                         users={usersCrop}
                         onSort={handeleSort}
                         {...rest}
+                        selectedSort={sortBy}
                     />
                 )}
                 <div className="d-flex justify-content-center">
