@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const TableHeader = ({ onSort, selectedSort, columns }) => {
     const handeleSort = (item) => {
+        console.log(item);
         if (selectedSort.path === item) {
             onSort({
                 ...selectedSort,
@@ -27,6 +28,12 @@ const TableHeader = ({ onSort, selectedSort, columns }) => {
                         scope="col"
                     >
                         {columns[column].name}
+                        {(selectedSort.path === columns[column].name)
+                            ? (selectedSort.order === "asc")
+                                ? <i className="bi bi-caret-up-fill"></i>
+                                : <i className="bi bi-caret-down-fill"></i>
+                            : null
+                        }
                     </th>
                 ))}
                 {/* <th scope="col">Качества</th>
